@@ -5,56 +5,115 @@
 {% block body %}
 <section class="p-5 bg-dark text-light">
     <div class="container">
-        <h2>Init the project in <span class="text-warning">Symfony Framework</span></h2>
-        <div class="row g-4 mt-4">
-            <div class="col-lg-6 col-md-12">
-                <div class="card bg-dark text-light border">
-                    <div class="card-body">
-                        <h3 class="card-title text-warning">Init the project</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item">symfony new symfony_resume --version="5.3"</li>
-                            <li class="list-group-item">cd symfony_resume</li>
-                            <li class="list-group-item">symfony server:start -d</li>
-                        </ul>
-                        <img src="img/1.png" alt="" class="img-fluid">
-                    </div>
+        <h2>How to use <span class="text-warning">Symfony Framework</span></h2>
+        <div class="row justify-content-between border mt-5">
+            <div class="col-lg-4 col-md-6 p-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning mb-2">Init the project</h3>
+                    <ul>
+                        <li>symfony new symfony_resume --version="5.3"</li>
+                        <li>cd symfony_resume</li>
+                        <li>symfony server:start -d</li>
+                    </ul>
+                    <img src="img/1.png" alt="" class="img-fluid mb-2">
+                    <ul>
+                        <li>symfony console (available commands list)</li>
+                        <li>composer require make twig annotations</li>
+                        <li>symfony console</li>
+
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="card bg-dark text-light border">
-                    <div class="card-body">
-                        <h3 class="card-title">Java Course</h3>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-lg btn-info">See more ...</a>
-                    </div>
+            <div class="col-lg-auto col-md-6 p-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning mb-2">GIT & GitHub</h3>
+                    <ul>
+                        <li>git status</li>
+                        <li>git add .</li>
+                        <li>git commit -m "init"</li>
+                        <li>git remote add origin [remote-repo]</li>
+                        <li>git push -u origin master --force</li>
+                    </ul>
+                    <a href="https://github.com/LightEducation/symfony_notes" class="btn btn-light float-end">@github.com</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card bg-dark text-light border">
-                    <div class="card-body">
-                        <h3 class="card-title">Java Course</h3>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-lg btn-info">See more ...</a>
-                    </div>
+            <div class="col-lg-3">
+                <img src="img/symfony.svg" class="d-lg-block d-none img-fluid rounded float-end" alt="...">
+            </div>
+        </div>
+        <div class="row justify-content-between border mt-5">
+            <div class="col-lg-4 col-md-6 p-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning mb-2">First Controller</h3>
+                    <ul>
+                        <li>symfony console make:controller Home</li>
+                    </ul>
+                    <code>
+<pre>
+    /**
+    * @Route("/test", name="app_test")
+    */
+    public function test(): Response{
+        return new Response("Hello world!");
+    }
+</pre>
+                    </code>
+                    <img src="img/2.png" alt="" class="img-fluid w-75 mb-2">
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="card bg-dark text-light border">
-                    <div class="card-body">
-                        <h3 class="card-title">Java Course</h3>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-lg btn-info">See more ...</a>
-                    </div>
+            <div class="col-auto p-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning mb-2">Using Twig</h3>
+                    <h5>Controller</h5>
+                    <code>
+                    <pre>
+/**
+ * @Route ("/", name="home")
+ */
+public function home(): Response {
+    return $this->render("home/index.html.twig");
+}
+                    </pre>
+                    </code>
+                    <h5>TWIG file</h5>
+                    <code>
+                        <pre>
+{ % extends 'base.html.twig' % }
+{ % block body % }
+Hello World!
+{ % endblock % }
+                        </pre>
+                    </code>
+                </div>
+            </div>
+            <div class="col-lg-4 p-2">
+                <div class="card-body">
+                    <h3 class="card-title text-warning mb-2">Add Bootstrap</h3>
+                    <ul>
+                        <li>Include path css et js in index header</li>
+                        <li>Config twig.yaml</li>
+                        <li>Icons: <a class="link" href="https://icons.getbootstrap.com">https://icons.getbootstrap.com</a></li>
+                        <li>Templates : <a href="https://bootswatch.com">https://bootswatch.com</a></li>
+                    </ul>
+                    <code>
+                        <pre>
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_5_layout.html.twig']
+                        </pre>
+                    </code>
+                    <a      class="btn btn-primary mb-2"
+                            href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">
+                        Bootstrap Doc
+                    </a>
+
+                    <a      class="btn btn-primary mb-2"
+                            href="https://symfony.com/doc/current/index.html">
+                        Symfony Doc
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
 {% endblock %}
