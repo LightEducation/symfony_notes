@@ -1,0 +1,83 @@
+<div class="col-lg-4 col-md-6 p-2">
+    <div class="card-body">
+        <h3 class="card-title text-warning mb-2">First Controller</h3>
+        <ul>
+            <li>symfony console make:controller Home</li>
+        </ul>
+        <code>
+<pre>
+    /**
+    * @Route("/test", name="app_test")
+    */
+    public function test(): Response{
+        return new Response("Hello world!");
+    }
+</pre>
+        </code>
+        <ul>
+            <li><a href="{{ path("app_test") }}">Simple Response</a></li>
+            <li><a href="{{ path('app_req', {'id': 42}) }}">Dump Request</a></li>
+            <li><a href="/json">Json</a></li>
+            <li><a href="{{ path('app_twig') }}">TWIG Examples</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-auto p-2">
+    <div class="card-body">
+        <h3 class="card-title text-warning mb-2">Using Twig</h3>
+        <h5>Controller</h5>
+        <code>
+                    <pre>
+/**
+ * @Route ("/", name="home")
+ */
+public function home(): Response {
+    return $this->render("home/index.html.twig");
+}
+                    </pre>
+        </code>
+        <h5>TWIG file</h5>
+        <code>
+                        <pre>
+{ % extends 'base.html.twig' % }
+{ % block body % }
+Hello World!
+{ % endblock % }
+                        </pre>
+        </code>
+    </div>
+</div>
+<div class="col-lg-4 p-2">
+    <div class="card-body">
+        <h3 class="card-title text-warning mb-2">Add Bootstrap</h3>
+        <ul>
+            <li>Include path css et js in index header</li>
+            <li>Config twig.yaml</li>
+            <li>Icons: <a class="link" href="https://icons.getbootstrap.com">https://icons.getbootstrap.com</a></li>
+            <li>Templates : <a href="https://bootswatch.com">https://bootswatch.com</a></li>
+            <li><a href="https://www.branchcms.com/learn">Learn Dev</a></li>
+            <li><a href="/template">See Example</a></li>
+
+        </ul>
+        <code>
+                        <pre>
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_5_layout.html.twig']
+                        </pre>
+        </code>
+        <a      class="btn btn-primary mb-2"
+                href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">
+            Bootstrap Doc
+        </a>
+
+        <a      class="btn btn-primary mb-2"
+                href="https://symfony.com/doc/current/index.html">
+            Symfony Doc
+        </a>
+        <a      class="btn btn-primary mb-2"
+                href="https://twig.symfony.com/doc/">
+            Twig Doc
+        </a>
+    </div>
+</div>

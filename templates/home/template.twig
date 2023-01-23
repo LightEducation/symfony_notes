@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="icons/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        .ddd {
+            background: burlywood;
+            border: solid 1px;
+        }
+        [class*="col"] {
+            border: solid 0px blue;
+        }
+        body::before {
+            content: '';
+            height: 20px;
+            display: block;
+        }
+        @media (min-width: 768px){
+            .input-search {width: 70%;}
+        }
+    </style>
+</head>
+<body>
+<!--  navbar  -->
+<nav class="navbar bg-dark navbar-dark navbar-expand-md fixed-top">
+    <div class="container">
+        <a href="/" class="navbar-brand">Home</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 3</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link 4</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--    section 1   -->
+<section class="bg-dark text-light p-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex">
+
+            <div>
+                <h1>Full Stack <span class="text-warning">Devloper</span></h1>
+                <p class="my-4">
+                    Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                </p>
+                <button class="btn btn-primary btn-lg" data-bs-target="#aaa" data-bs-toggle="modal">Entoll Now</button>
+            </div>
+            <img src="img/dev.svg" alt="FSD" class="img-fluid w-50 d-none d-sm-block">
+
+        </div>
+    </div>
+</section>
+
+
+<!--    section 2    justify-content-between align-items-center-->
+<section class="bg-primary text-light p-3">
+    <div class="container">
+        <div class="d-md-flex justify-content-between align-items-center">
+            <h3 class="mb-3 mb-md-0">Sing UP</h3>
+            <div class="input-group input-search">
+                <input type="text" class="form-control">
+                <button class="btn btn-dark btn-lg" type="button">Searche</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--    Boxex   -->
+<section class="p-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md">
+                <div class="card bg-dark text-light">
+                    <div class="card-body">
+                        <h3 class="card-title">Java Course</h3>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        </p>
+                        <a href="#" class="btn btn-lg btn-info">See more ...</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card bg-dark text-light">
+                    <div class="card-body">
+                        <h3 class="card-title">PHP Course</h3>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        </p>
+                        <a href="#" class="btn btn-lg btn-info">See more ...</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card bg-dark text-light">
+                    <div class="card-body">
+                        <h3 class="card-title">Python Course</h3>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        </p>
+                        <a href="#" class="btn btn-lg btn-info">See more ...</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--    section 3   -->
+<section class="p-5">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md">
+                <img src="img/dev.svg" alt="FSD" class="img-fluid">
+            </div>
+            <div class="col-md">
+                <h1>Full Stack <span class="text-warning">Devloper</span></h1>
+                <p class="my-4">
+                    Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                </p>
+                <button class="btn btn-primary btn-lg">Entoll Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--    section 4   -->
+<section class="p-5">
+    <div class="container">
+        <h1 class="text-center mb-4">Related Forum's Questions</h1>
+
+        <div class="accordion accordion-flush" id="Qid">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#itemA" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Who we are?
+                    </button>
+                </h2>
+                <div id="itemA" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#Qid">
+                    <div class="accordion-body">
+                        Placeholder content for this accordion, which is intended to demonstrate the
+                        <code>.accordion-flush</code> class. This is the first item's accordion body.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#itemB" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Where do I start?
+                    </button>
+                </h2>
+                <div id="itemB" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        Placeholder content for this accordion, which is intended to demonstrate the
+                        <code>.accordion-flush</code> class. This is the second item's accordion body.
+                        Let's imagine this being filled with some actual content.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#itemC" aria-expanded="false" aria-controls="flush-collapseThree">
+                        How can I get it?
+                    </button>
+                </h2>
+                <div id="itemC" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        Placeholder content for this accordion, which is intended to demonstrate the
+                        <code>.accordion-flush</code> class. This is the third item's accordion body.
+                        Nothing more exciting happening here in terms of content,
+                        but just filling up the space to make it look, at least at first glance,
+                        a bit more representative of how this would look in a real-world application.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!--    Cards   -->
+<section class="p-5 bg-primary">
+    <div class="container">
+        <h2 class="text-white text-center">Our Employees</h2>
+        <p class="lead text-center text-white mb-5">
+            Nothing more exciting happening here in terms of content
+        </p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="" class="rounded-circle mb-3">
+                        <h3 class="card-title mb-3">Jone Thrond</h3>
+                        <p class="card-text">
+                            This is the third item's accordion body.
+                            Nothing more exciting happening here in terms of content
+                        </p>
+                        <span class="bi bi-facebook mx-1  fs-4"></span>
+                        <span class="bi bi-linkedin mx-1  fs-4"></span>
+                        <span class="bi bi-instagram mx-1 fs-4"></span>
+                        <span class="bi bi-twitter mx-1   fs-4"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="" class="rounded-circle mb-3">
+                        <h3 class="card-title mb-3">Jone Thrond</h3>
+                        <p class="card-text">
+                            This is the third item's accordion body.
+                            Nothing more exciting happening here in terms of content
+                        </p>
+                        <span class="bi bi-facebook mx-1  fs-4"></span>
+                        <span class="bi bi-linkedin mx-1  fs-4"></span>
+                        <span class="bi bi-instagram mx-1 fs-4"></span>
+                        <span class="bi bi-twitter mx-1   fs-4"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="" class="rounded-circle mb-3">
+                        <h3 class="card-title mb-3">Jone Thrond</h3>
+                        <p class="card-text">
+                            This is the third item's accordion body.
+                            Nothing more exciting happening here in terms of content
+                        </p>
+                        <span class="bi bi-facebook mx-1  fs-4"></span>
+                        <span class="bi bi-linkedin mx-1  fs-4"></span>
+                        <span class="bi bi-instagram mx-1 fs-4"></span>
+                        <span class="bi bi-twitter mx-1   fs-4"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="" class="rounded-circle mb-3">
+                        <h3 class="card-title mb-3">Jone Thrond</h3>
+                        <p class="card-text">
+                            This is the third item's accordion body.
+                            Nothing more exciting happening here in terms of content
+                        </p>
+                        <span class="bi bi-facebook mx-1  fs-4"></span>
+                        <span class="bi bi-linkedin mx-1  fs-4"></span>
+                        <span class="bi bi-instagram mx-1 fs-4"></span>
+                        <span class="bi bi-twitter mx-1   fs-4"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- footer -->
+<footer class="p-5 bg-dark text-white text-center position-relative">
+    <div class="container">
+        <p class="lead">Copyright &copy; 2023</p>
+        <a href="#" class="float-end position-absolute bottom-0 end-0 p-5">
+            <i class="bi bi-arrow-up-circle h1"></i>
+        </a>
+    </div>
+</footer>
+
+<div class="modal fade" id="aaa" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Show a second modal and hide this one with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#bbb" data-bs-toggle="modal">Open second modal</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="bbb" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#aaa" data-bs-toggle="modal">Back to first</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

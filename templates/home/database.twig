@@ -1,0 +1,24 @@
+<div class="col-lg-4 col-md-6 p-2">
+    <div class="card-body">
+        <h3 class="card-title text-warning mb-2">ORM/Doctrine</h3>
+        <ul>
+            <li>composer require orm form validator</li>
+            <li>Modify your DATABASE_URL config in .env</li>
+            <li>symfony console doctrine:database:create</li>
+            <li>symfony console make:entity Product</li>
+            <li>symfony console doctrine:migrations:diff</li>
+            <li>symfony console doctrine:migrations:migrate</li>
+        </ul>
+        <h3 class="card-title text-warning my-2">Fixture</h3>
+        <ul>
+            <li><a href="https://symfony.com/bundles/DoctrineFixturesBundle/current/index.html">Documentation</a></li>
+            <li>composer require --dev orm-fixtures</li>
+            <li>Write objects in AppFixtures.php</li>
+            <li>symfony console doctrine:fixtures:load</li>
+            <li><a href="{{ path('app_cmd') }}">Dump Results</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-lg-auto col-md-6 p-2">
+    <img src="img/3.png" alt="">
+</div>

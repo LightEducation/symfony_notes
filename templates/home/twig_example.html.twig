@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TWIG Examples{% endblock %}
+
+{% block body %}
+<section class="p-4">
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Label</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for p in products %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.qte }}</td>
+                        <td>{{ p.price }} DH</td>
+                    </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</section>
+<section class="bg-dark p-4">
+    <div class="container text-light">
+        Global variable (file twig.yaml) : Author = {{ author }}
+        <code>
+            <pre>
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_5_layout.html.twig']
+    globals:
+        author: Youness NACHID-IDRISSI
+            </pre>
+        </code>
+    </div>
+</section>
+{% endblock %}
