@@ -1,0 +1,45 @@
+<div class="col-lg-4 col-md-6 p-2">
+    <div class="card-body">
+        <h3 class="card-title text-warning mb-2">Authentication</h3>
+        <ul>
+            <li>composer require security</li>
+            <li>symfony console make:user</li>
+            <li>symfony console make:auth</li>
+            <li>symfony console security:hash-password</li>
+        </ul>
+        <a href="#" class="btn btn-primary float-end" data-bs-target="#signup" data-bs-toggle="modal">Sign UP</a>
+    </div>
+</div>
+<div class="col-lg-auto col-md-6 p-2">
+    {% if app.user %}
+        <div class="card-body">
+            <h3 class="card-title text-warning mb-2">User Session Debug</h3>
+            <code><pre>{{ dump(app.user) }}</pre></code>
+        </div>
+    {% else %}
+        <div class="card-body">
+            <h3 class="card-title text-warning mb-2">Access Control</h3>
+            file: security.yaml
+            <code><pre>
+access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/singup, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
+                </pre></code>
+        </div>
+    {% endif %}
+</div>
+
+<div class="modal fade" id="signup" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered text-dark">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Sign UP</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ form(signup_form) }}
+            </div>
+        </div>
+    </div>
+</div>

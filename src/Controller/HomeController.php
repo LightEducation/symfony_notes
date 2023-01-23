@@ -3,13 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use App\Entity\User;
 use App\Product;
 use App\Repository\CommandRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -57,9 +68,49 @@ class HomeController extends AbstractController
     /**
      * @Route ("/", name="home")
      */
-    public function home(): Response
+    public function home(Request $request,UserPasswordHasherInterface $hasher,UserRepository $repository): Response
     {
-        return $this->render("home/index.html.twig");
+        $form = $this->createFormBuilder()
+            ->add("email")
+            ->add('password',RepeatedType::class,[
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat Password'],
+            ])
+            ->add('attachment',FileType::class)
+            ->add('singup',SubmitType::class,[
+                'attr' => [
+                    'class' => 'btn-success float-end'
+                ],
+                'label' => "Sign UP"
+            ])
+            ->getForm();
+        $form->handleRequest($request);
+        $form->getErrors();
+        if($form->isSubmitted() and $form->isValid()){
+            $data = $form->getData();
+            $user = new User();
+            $user->setEmail($data["email"]);
+            $user->setPassword($hasher->hashPassword($user,$data["password"]));
+            $this->addFlash("info","User registered successfully");
+
+            /** @var UploadedFile $file */
+            $file = $request->files->get("form")["attachment"];
+            $filename = md5(uniqid()).".".$file->guessClientExtension();
+            $file->move($this->getParameter('upload_dir'),$filename);
+            $this->addFlash("info","<a href='uploads/$filename'>See file</a>");
+            try {
+                $repository->add($user, true);
+            } catch (Exception $e) {
+                dd($e);
+            }
+        }
+        return $this->render("home/index.html.twig",[
+            "signup_form" => $form->createView()
+        ]);
     }
 
     /**
@@ -84,7 +135,14 @@ class HomeController extends AbstractController
         $commands = $commandRepository->findAll();
         dump($commands);
 
-
         return new Response();
+    }
+
+    /**
+     * @Route ("/signup", name="signup")
+     */
+    public function signup(): Response
+    {
+       return new Response();
     }
 }

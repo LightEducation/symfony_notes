@@ -5,6 +5,12 @@
 {% block body %}
 <section class="p-5 bg-dark text-light">
     <div class="container">
+        {% for msg in app.flashes('info') %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Info:</strong> {{ msg | raw }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
         <h2>How to use <span class="text-warning">Symfony Framework</span></h2>
         <div class="row justify-content-between border mt-5">
             {{ include('home/init.twig') }}
@@ -14,6 +20,9 @@
         </div>
         <div class="row justify-content-between border mt-5">
             {{ include('home/database.twig') }}
+        </div>
+        <div class="row justify-content-between border mt-5">
+            {{ include('security/security.twig') }}
         </div>
     </div>
 </section>
